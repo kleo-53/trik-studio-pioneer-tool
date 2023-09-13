@@ -31,6 +31,7 @@ jobs:
       run: pip install pytest
 
     - name: Run tests
+      working-directory: ${{ github.workspace }}
       run: pytest
 
     - name: Publish artifact
