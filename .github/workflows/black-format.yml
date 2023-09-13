@@ -28,6 +28,8 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
+          git config --global user.email "liza.1610@mail.ru"
+          git config --global user.name "Elizaveta Karaseva"
           git add pioneer_uploader.py
           git commit -m "Format code with Black"
           git push
