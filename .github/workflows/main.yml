@@ -20,13 +20,12 @@ jobs:
 
     - name: Install dependencies
       run: pip install -r requirements.txt
-      working-directory: ${{ github.workspace }}
     
     - name: Install PyInstaller
       run: pip install pyinstaller
 
     - name: Build with PyInstaller
-      run: pyinstaller --onefile pioneer-uploader.py
+      run: pyinstaller --onefile pioneer_uploader.py
 
     - name: Run tests
       run: pytest
