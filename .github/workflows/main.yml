@@ -20,19 +20,18 @@ jobs:
 
     - name: Install dependencies
       run: pip install -r requirements.txt
-
-    - name: Format code with Black
-      run: black pioneer-uploader.py
+      working-directory: ${{ github.workspace }}
 
     - name: Build with PyInstaller
       run: pyinstaller --onefile pioneer-uploader.py
+
+    - name: Run tests
+      run: pytest
 
     - name: Publish artifact
       if: github.event_name == 'pull_request'
       uses: actions/upload-artifact@v2
       with:
-        name: publish-artifact
+        name: pioneer-uploader.exe
         path: dist
     
-    - name: Run tests
-      run: pytest
