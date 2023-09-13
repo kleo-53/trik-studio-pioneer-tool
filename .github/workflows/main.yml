@@ -30,12 +30,8 @@ jobs:
     - name: Install pytest
       run: pip install pytest
 
-    - name: Print Current Directory
-      run: pwd
-
     - name: Run tests
-      working-directory: ${{ github.workspace }}
-      run: pytest
+      run: pytest pioneer_uploader.py
 
     - name: Publish artifact
       if: github.event_name == 'pull_request'
