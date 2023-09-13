@@ -29,9 +29,11 @@ jobs:
     
     - name: Install pytest
       run: pip install pytest
-
+    
     - name: Run tests
-      run: pytest pioneer_uploader.py
+      run: 
+        export PYTHONPATH=$PYTHONPATH:$GITHUB_WORKSPACE
+        pytest
 
     - name: Publish artifact
       if: github.event_name == 'pull_request'
