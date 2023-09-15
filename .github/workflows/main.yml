@@ -1,9 +1,6 @@
 name: Build and Test
 
-on:
-  pull_request:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
   build:
@@ -12,6 +9,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Format code with black
+      uses: psf/black@stable
 
     - name: Set up Python
       uses: actions/setup-python@v2
