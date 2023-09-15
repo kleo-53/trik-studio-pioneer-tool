@@ -10,7 +10,7 @@ def test_without_file(mock_logging_error):
         "invalid_file_path",
         "invalid_ip",
         "invalid_port",
-        "invalid_mode"
+        "invalid_mode",
     ]
     with patch("sys.argv", test_args):
         pioneer_uploader.main()
