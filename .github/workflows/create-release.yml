@@ -1,0 +1,25 @@
+name: Create Release
+
+on:
+  workflow_run:
+    workflows: ["black", "main"]
+    types:
+      - completed
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    
+    needs: ["main", "black"]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Create Release
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          dist/pioneer-uploader.exe
+        token: ${{ secrets.GITHUB_TOKEN }}
