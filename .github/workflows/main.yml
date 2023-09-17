@@ -4,23 +4,25 @@ on: [push, pull_request]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.8.4', '3.10.12', 'latest']
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Format code with black
-      uses: psf/black@stable
-
+      
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.10.12
+        python-version: ${{ matrix.python-version }}
 
     - name: Install dependencies
       run: pip install -r requirements.txt
     
-    - name: Install PyInstaller
+    - name: Install PyInstaller 
       run: pip install pyinstaller
 
     - name: Build with PyInstaller
