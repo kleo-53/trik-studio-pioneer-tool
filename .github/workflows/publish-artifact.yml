@@ -1,0 +1,21 @@
+name: Publish artifact
+
+on:
+  pull_request:
+    branches:
+      - main
+    branches-ignore:
+      - 'dependabot**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Publish artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: pioneer-uploader.exe
+        path: dist
+    

@@ -1,0 +1,30 @@
+name: Create Release
+
+on:
+  pull_request:
+    types:
+      - closed
+
+  workflow_run:
+    workflows: ["tox-testing"]
+    types:
+      - completed
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'release')
+
+    needs: ["tox-testing"]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Create Release
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          dist/pioneer-uploader.exe
+        token: ${{ secrets.GITHUB_TOKEN }}
