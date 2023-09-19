@@ -16,8 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'release')
 
-    needs: ["tox-testing"]
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
