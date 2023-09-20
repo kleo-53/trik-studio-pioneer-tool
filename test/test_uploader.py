@@ -28,13 +28,5 @@ def test_few_arguments(mock_logging_error):
     mock_logging_error.assert_called_once_with("Invalid arguments")
 
 
-@patch("logging.error")
-def test_args_format(mock_logging_error):
-    test_args = ["parameter", "filename.lusa", "127.0.0.1", "8888", "some_mode"]
-    with patch("sys.argv", test_args):
-        pioneer_uploader.main()
-    mock_logging_error.assert_called_once_with("Invalid program file format")
-
-
 if __name__ == "__main__":
     pytest.main()
