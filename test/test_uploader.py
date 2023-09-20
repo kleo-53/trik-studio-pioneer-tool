@@ -1,6 +1,9 @@
 import pytest
-import pioneer_uploader
+import repackage
 from unittest.mock import patch
+
+repackage.up()
+import pioneer_uploader
 
 
 @patch("logging.error")

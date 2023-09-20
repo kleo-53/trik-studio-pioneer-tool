@@ -2,25 +2,25 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Release (latest by date)](https://img.shields.io/badge/release-v1.0.0--alpha-blue)](https://github.com/kleo-53/trik-studio-pioneer-tool/releases/latest)
 
-# Trik Studio Pioneer Tool
+# TRIK Studio Pioneer Tool
 Companion tool for [TRIK Studio](https://dl.trikset.com/ts/fresh) to simplify the process of uploading programs to Pioneer quadcopter.
 
-This tool provides an executable file ("pioneer-uploader.exe") that integrates with Trik Studio.
+This tool provides an executable file ("pioneer-uploader.exe") that integrates with TRIK Studio.
 
 # For users
-These simple steps will guide you through setting up and using the Trik Studio Pioneer Tool.
+These simple steps will guide you through setting up and using the TRIK Studio Pioneer Tool.
 
 ## Installation
 *Before you begin, make sure you have [TRIK Studio](https://dl.trikset.com/ts/fresh) installed on your machine.*
 1. Go to the [Releases section](https://github.com/kleo-53/trik-studio-pioneer-tool/releases) of this repository.
 2. Download the "pioneer-uploader.exe" file from the latest release.
-3. Place the downloaded "pioneer-uploader.exe" file **in the directory where you have Trik Studio installed**.
+3. Place the downloaded "pioneer-uploader.exe" file **in the directory where you have TRIK Studio installed**.
 
 ## How to use
-1. Open Trik Studio.
+1. Open TRIK Studio.
 2. Create or open your project.
 3. When you're ready to upload your program to the quadcopter, simply click the "Upload" button.
-The Trik Studio Pioneer Tool will automatically launch and load the program.
+The TRIK Studio Pioneer Tool will automatically launch and load the program.
 
 ## Alternative
 If errors continue to occur while using this tool, please try an **alternative way to upload the program** to the quadcopter: install and use the [Pioneer station](https://docs.geoscan.aero/ru/master/programming/pioneer_station/pioneer_station_main.html) program.
@@ -66,7 +66,7 @@ To build the project on your system you will need the following tools:
    python.exe -m pip install --upgrade pip
    pip install -r requirements.txt
    ```
-   
+
 Now you can edit the project, build the executable file or run tests locally!
 
 ## Build executable
@@ -80,9 +80,22 @@ Now you can edit the project, build the executable file or run tests locally!
    ```
 3. You will find the "pioneer-uploader.exe" file in the **dist** directory.
 
-
 ## Running Tests
-You can run tests via Tox to ensure the tool's functionality. Tests are available in the "test_uploader.py" file.
+You can run tests to ensure the tool's functionality. Tests are available in the "test_uploader.py" file.
+
+### Manual Testing
+Run tests with pytest module.
+1. Install pytest via `pip`:
+   ```
+   pip install pytest
+   ```
+2. Run the tests using the following command:
+   ```
+   pytest test_uploader.py
+   ```
+
+### Using Tox
+Alternatively, you can use Tox for testing.
 1. Install Tox via `pip`:
    ```
    pip install tox
@@ -96,5 +109,4 @@ You can run tests via Tox to ensure the tool's functionality. Tests are availabl
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt) site for more details.
 
 ## Contributing
-Have suggestions or improvements for the Trik Studio Pioneer Tool? Open an [issue](https://github.com/trikset/trik-studio-pioneer-tool/issues) in our repository. We appreciate your feedback and contributions!
-
+Have suggestions or improvements for the TRIK Studio Pioneer Tool? Open an [issue](https://github.com/trikset/trik-studio-pioneer-tool/issues) in our repository. We appreciate your feedback and contributions!
