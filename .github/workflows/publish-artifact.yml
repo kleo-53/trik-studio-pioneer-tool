@@ -18,7 +18,6 @@ jobs:
       - name: Publish artifact
         uses: actions/upload-artifact@v2
         with:
-          working-directory: ./dist
           name: pioneer-uploader
-          path: dist/pioneer-uploader
+          path: dist
           if-no-files-found: error
