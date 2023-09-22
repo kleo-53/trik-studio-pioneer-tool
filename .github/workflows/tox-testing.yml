@@ -23,3 +23,11 @@ jobs:
 
     - name: Run Tox
       run: tox
+    
+    - name: Publish artifact
+      if: github.event_name == 'pull_request'
+      uses: actions/upload-artifact@v2
+      with:
+        name: pioneer-uploader
+        path: ./dist
+        if-no-files-found: error
