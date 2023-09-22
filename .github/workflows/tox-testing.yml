@@ -25,7 +25,7 @@ jobs:
       run: tox
     
     - name: Publish artifact
-      if: github.event_name == 'push'
+      if: github.event_name == 'pull_request'
       uses: actions/upload-artifact@v2
       with:
         name: pioneer-uploader
