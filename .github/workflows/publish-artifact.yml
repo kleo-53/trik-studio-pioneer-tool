@@ -19,5 +19,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: pioneer-uploader
-          path: ./dist/pioneer-uploader.exe
+          path: dist
           if-no-files-found: error
