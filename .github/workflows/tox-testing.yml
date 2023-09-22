@@ -1,0 +1,33 @@
+name: Tox Testing
+
+on: 
+  push:
+    branches-ignore:
+      - 'dependabot**'
+
+jobs:
+  tox:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8.18
+
+    - name: Install Tox
+      run: pip install tox
+
+    - name: Run Tox
+      run: tox
+    
+    - name: Publish artifact
+      if: github.event_name == 'pull_request'
+      uses: actions/upload-artifact@v2
+      with:
+        name: pioneer-uploader
+        path: ./dist
+        if-no-files-found: error
